@@ -1,0 +1,78 @@
+
+.col{
+
+    
+    
+     /*  padding: 5px 5px 50px 5px; */
+     padding: 50px 0px 50px 0px;
+   
+}
+
+.titulo{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    color: rgb(121, 73, 199);
+}
+
+-----------------------------------
+
+
+
+
+.contenedor{
+    
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+}
+
+
+
+.imagen{
+    
+    width: 380px;
+    height: 330px;
+    margin-bottom: 10px;
+    /* height: 200px; */
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+    
+}
+.imagen> img{
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hover-galeria{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: scale(0);
+    background: hsla(273, 91%, 27%, 0.7);
+    transition: transform .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+.hover-galeria img{
+    width: 80px;
+}
+
+.hover-galeria p{
+    color: #fff;
+}
+
+.imagen:hover .hover-galeria{
+    transform: scale(1);
+}
+ 

@@ -1,0 +1,29 @@
+.container1{
+    margin: 20px;
+  
+  
+    justify-content: center;
+  
+    display: flex;
+  
+  
+    align-items: center;
+  
+    padding: 10px;
+    padding-top: 40px;
+  
+  
+}
+
+.radio{
+
+    width: 600px;
+    height: 450px;
+    margin-left: 30%;
+    margin-bottom: 60px;
+
+}
+.ratio{
+    width: 400px;
+    height: 300px;
+}
