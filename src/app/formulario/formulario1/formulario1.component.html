@@ -1,0 +1,46 @@
+<div class="container">
+  <h1>Administración de contactos</h1>
+  <!-- Creacion de la grilla -->
+  <div class="row">
+    <div class="col-lg-6">
+      <form [formGroup]="myform">  <!-- el formulario se llama myform-->
+        <p>
+          <label>Nombre</label><input type="number" class="form-control" formControlName="IdSalones_p" />
+        </p>
+        <p>
+          <label>Telefono</label><input type="number" class="form-control" formControlName="IdCliente" />
+        </p>
+        <p>
+          <label for="FechaHora" class="form-label">FechaHora</label><input type="datetime" class="form-control" formControlName="FechaHora"  />
+        </p>
+        <p><button (click)="alta(myform.value)" class="btn btn-primary mx-1">Agregar</button>
+           <button (click)="modificacion(myform.value)" class="btn btn-danger">Modificar</button>
+        </p>
+      </form>
+    </div>
+
+    <div class="col-lg-6">
+       <!-- puede colocar una imagen -->
+       <!--<img src="https://thumbs.dreamstime.com/b/se%C3%B1ora-bermeja-del-negocio-en-fondo-verde-secretaria-de-la-mujer-vector-f-95886009.jpg" alt="" width="60%" height="100%">-->
+
+    </div>
+  </div>
+  <table class="table table-striped table-bordered">
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Telefono</th>
+      <th>Correo</th>
+      <th class="text-center" colspan="2">Opciones</th>
+    </tr>
+     <!-- *ngfor permite recorrer el resultado de buscar todos los registros y mostralo en la tabla html -->
+    <tr *ngFor="let con of lista_contactos" >
+      <td>{{con.IdAgenda}}</td>
+      <td>{{con.IdSalones_p}}</td>
+      <td>{{con.IdCliente}}</td>
+      <td>{{con.FechaHora}}</td>
+      <td><button class="btn btn-outline-secondary" (click)="seleccionar(con)">Seleccionar</button></td>
+      <td><button class="btn btn-outline-danger" (click)="baja(con.IdAgenda)">Borrar?</button></td>
+    </tr>
+  </table>
+ </div>
