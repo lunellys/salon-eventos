@@ -11,14 +11,14 @@ export class FormularioclienteComponent implements OnInit {
 
   myform:FormGroup  
   id_editar:number=0;
-  constructor(private _builder:FormBuilder,private contacto: ClienteService) { 
+  constructor(private _builder:FormBuilder,private cliente: ClienteService) { 
     this.myform=this._builder.group({
       nombres: ['', [Validators.required, Validators.maxLength(50)]]  ,
       apellidos: ['', [Validators.required]]  ,
       identificacion: ['', [Validators.required, Validators.maxLength(100)]] 
     })
   }
-  lista_contactos: any;
+  lista_clientes: any;
   nuevocon={
     nombres:null,
     apellidos:null,
@@ -33,7 +33,7 @@ export class FormularioclienteComponent implements OnInit {
   /// este metodo llama al servicio que se llama recuperar todo que tiene la 
   //ruta para la api--> recuperar toto = getAll
   recuperarTodos() {
-    this.contacto.recuperarTodos().subscribe(result => this.lista_contactos = result);
+    this.cliente.recuperarTodos().subscribe(result => this.lista_clientes = result);
   }
   //este metodo carga los datos del formulario y llama al servicio con metodo alta
   // que tiene la ruta de agregar  alta=add_contact
@@ -43,9 +43,9 @@ export class FormularioclienteComponent implements OnInit {
       apellidos:value.apellidos,
       identificacion:value.identificacion
     }
-    this.contacto.alta(this.nuevocon).subscribe(datos => {
+    this.cliente.alta(this.nuevocon).subscribe(datos => {
       console.log(datos)
-      alert("Contacto agregado ")
+      alert("cliente agregado ")
       this.myform.reset()
       this.recuperarTodos()
      });
@@ -54,9 +54,9 @@ export class FormularioclienteComponent implements OnInit {
   // llama el metodo baja del servicio  baja=delete/<id>
   baja(id:number) {
     if (window.confirm("Esta seguro de eliminar el registro Numero "+id+" ?")) {
-      this.contacto.baja(id).subscribe(datos => {
+      this.cliente.baja(id).subscribe(datos => {
         console.log(datos)
-        alert("Contacto eliminado ")
+        alert("cliente eliminado ")
         this.myform.reset()
         this.recuperarTodos()
       });
@@ -65,7 +65,7 @@ export class FormularioclienteComponent implements OnInit {
    
   }
 
-  // este metodo obtiene el id del contacto a editar
+  // este metodo obtiene el id del cliente a editar
   // llama el metodo baja del servicio  modificacion=update/<id>
   modificacion(value:any) {
     this.nuevocon={
@@ -73,9 +73,9 @@ export class FormularioclienteComponent implements OnInit {
       apellidos:value.apellidos,
       identificacion:value.identificacion
     }
-    this.contacto.modificacion(this.nuevocon,this.id_editar).subscribe(datos => {
+    this.cliente.modificacion(this.nuevocon,this.id_editar).subscribe(datos => {
       console.log(datos)
-      alert("Contacto editado ")
+      alert("cliente editado ")
       this.myform.reset()
       this.recuperarTodos()
     });    

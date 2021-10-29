@@ -17,8 +17,8 @@ export class SalonesPrestadosService {
   }
 
   //insertar
-  alta(contacto:any):Observable<any> {
-    return this.http.post(`${this.url}add_salonesPrestados`, contacto);    
+  alta(salonP:any):Observable<any> {
+    return this.http.post(`${this.url}add_salonesPrestados`, salonP);    
   }
  
   //eliminar
@@ -27,7 +27,7 @@ export class SalonesPrestadosService {
   }
 
    //editar
-  modificacion(contacto:any, id:number) {
-    return this.http.put(`${this.url}/update_salonesPrestados/`+id, contacto);    
+  modificacion(salonP:any, id:number) {
+    return this.http.put(`${this.url}/update_salonesPrestados/`+id, salonP);    
   } 
 }

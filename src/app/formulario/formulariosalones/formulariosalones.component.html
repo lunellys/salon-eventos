@@ -5,13 +5,13 @@
       <div class="col-lg-6">
         <form [formGroup]="myform">  <!-- el formulario se llama myform-->
           <p>
-            <label>Nombre</label><input type="text" class="form-control" formControlName="tamano" />
+            <label>Tamaño</label><input type="text" class="form-control" formControlName="tamano" />
           </p>
           <p>
-            <label>Telefono</label><input type="text" class="form-control" formControlName="tipo_Salon" />
+            <label>Tipo de Salon</label><input type="text" class="form-control" formControlName="tipo_Salon" />
           </p>
           <p>
-            <label>Correo</label><input type="number" class="form-control" formControlName="precio" />
+            <label>Valor</label><input type="number" class="form-control" formControlName="precio" />
           </p>
           <p><button (click)="alta(myform.value)" class="btn btn-primary mx-1">Agregar</button>
              <button (click)="modificacion(myform.value)" class="btn btn-danger">Modificar</button>
@@ -34,7 +34,7 @@
         <th class="text-center" colspan="2">Opciones</th>
       </tr>
        <!-- *ngfor permite recorrer el resultado de buscar todos los registros y mostralo en la tabla html -->
-      <tr *ngFor="let con of lista_contactos" >
+      <tr *ngFor="let con of lista_salones" >
         <td>{{con.IdSalones}}</td>
         <td>{{con.tamano}}</td>
         <td>{{con.tipo_Salon}}</td>

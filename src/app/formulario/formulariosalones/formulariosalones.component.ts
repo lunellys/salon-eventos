@@ -11,14 +11,14 @@ export class FormulariosalonesComponent implements OnInit {
 
   myform:FormGroup  
   id_editar:number=0;
-  constructor(private _builder:FormBuilder,private contacto: SalonesService) { 
+  constructor(private _builder:FormBuilder,private salones: SalonesService) { 
     this.myform=this._builder.group({
       tamano: ['', [Validators.required, Validators.maxLength(50)]]  ,
       tipo_Salon: ['', [Validators.required]]  ,
       precio: ['', [Validators.required, Validators.maxLength(100)]] 
     })
   }
-  lista_contactos: any;
+  lista_salones: any;
   nuevocon={
     tamano:null,
     tipo_Salon:null,
@@ -33,7 +33,7 @@ export class FormulariosalonesComponent implements OnInit {
   /// este metodo llama al servicio que se llama recuperar todo que tiene la 
   //ruta para la api--> recuperar toto = getAll
   recuperarTodos() {
-    this.contacto.recuperarTodos().subscribe(result => this.lista_contactos = result);
+    this.salones.recuperarTodos().subscribe(result => this.lista_salones = result);
   }
   //este metodo carga los datos del formulario y llama al servicio con metodo alta
   // que tiene la ruta de agregar  alta=add_contact
@@ -43,9 +43,9 @@ export class FormulariosalonesComponent implements OnInit {
       tipo_Salon:value.tipo_Salon,
       precio:value.precio
     }
-    this.contacto.alta(this.nuevocon).subscribe(datos => {
+    this.salones.alta(this.nuevocon).subscribe(datos => {
       console.log(datos)
-      alert("Contacto agregado ")
+      alert("salon agregado ")
       this.myform.reset()
       this.recuperarTodos()
      });
@@ -54,9 +54,9 @@ export class FormulariosalonesComponent implements OnInit {
   // llama el metodo baja del servicio  baja=delete/<id>
   baja(id:number) {
     if (window.confirm("Esta seguro de eliminar el registro Numero "+id+" ?")) {
-      this.contacto.baja(id).subscribe(datos => {
+      this.salones.baja(id).subscribe(datos => {
         console.log(datos)
-        alert("Contacto eliminado ")
+        alert("salon eliminado ")
         this.myform.reset()
         this.recuperarTodos()
       });
@@ -73,9 +73,9 @@ export class FormulariosalonesComponent implements OnInit {
       tipo_Salon:value.tipo_Salon,
       precio:value.precio
     }
-    this.contacto.modificacion(this.nuevocon,this.id_editar).subscribe(datos => {
+    this.salones.modificacion(this.nuevocon,this.id_editar).subscribe(datos => {
       console.log(datos)
-      alert("Contacto editado ")
+      alert("salon editado ")
       this.myform.reset()
       this.recuperarTodos()
     });    

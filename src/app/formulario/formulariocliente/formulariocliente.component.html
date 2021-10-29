@@ -8,10 +8,10 @@
             <label>Nombre</label><input type="text" class="form-control" formControlName="nombres" />
           </p>
           <p>
-            <label>Telefono</label><input type="text" class="form-control" formControlName="apellidos" />
+            <label>Apellido</label><input type="text" class="form-control" formControlName="apellidos" />
           </p>
           <p>
-            <label>Telefono</label><input type="number" class="form-control" formControlName="identificacion" />
+            <label>Identificacion</label><input type="number" class="form-control" formControlName="identificacion" />
           </p>
           <p><button (click)="alta(myform.value)" class="btn btn-primary mx-1">Agregar</button>
              <button (click)="modificacion(myform.value)" class="btn btn-danger">Modificar</button>
@@ -34,7 +34,7 @@
         <th class="text-center" colspan="2">Opciones</th>
       </tr>
        <!-- *ngfor permite recorrer el resultado de buscar todos los registros y mostralo en la tabla html -->
-      <tr *ngFor="let con of lista_contactos" >
+      <tr *ngFor="let con of lista_clientes" >
         <td>{{con.IdCliente}}</td>
         <td>{{con.nombres}}</td>
         <td>{{con.apellidos}}</td>

@@ -11,14 +11,14 @@ export class Formulario1Component implements OnInit {
 
   myform:FormGroup  
   id_editar:number=0;
-  constructor(private _builder:FormBuilder,private contacto: AgendaService) { 
+  constructor(private _builder:FormBuilder,private agenda: AgendaService) { 
     this.myform=this._builder.group({
       IdSalones_p: ['', [Validators.required, Validators.maxLength(50)]]  ,
       IdCliente: ['', [Validators.required]]  ,
       FechaHora: ['', [Validators.required, Validators.maxLength(100)]] 
     })
   }
-  lista_contactos: any;
+  lista_agendas: any;
   nuevocon={
     IdSalones_p:null,
     IdCliente:null,
@@ -33,7 +33,7 @@ export class Formulario1Component implements OnInit {
   /// este metodo llama al servicio que se llama recuperar todo que tiene la 
   //ruta para la api--> recuperar toto = getAll
   recuperarTodos() {
-    this.contacto.recuperarTodos().subscribe(result => this.lista_contactos = result);
+    this.agenda.recuperarTodos().subscribe(result => this.lista_agendas = result);
   }
   //este metodo carga los datos del formulario y llama al servicio con metodo alta
   // que tiene la ruta de agregar  alta=add_contact
@@ -43,9 +43,9 @@ export class Formulario1Component implements OnInit {
       IdCliente:value.IdCliente,
       FechaHora:value.FechaHora
     }
-    this.contacto.alta(this.nuevocon).subscribe(datos => {
+    this.agenda.alta(this.nuevocon).subscribe(datos => {
       console.log(datos)
-      alert("Contacto agregado ")
+      alert("agenda agregada ")
       this.myform.reset()
       this.recuperarTodos()
      });
@@ -54,9 +54,9 @@ export class Formulario1Component implements OnInit {
   // llama el metodo baja del servicio  baja=delete/<id>
   baja(id:number) {
     if (window.confirm("Esta seguro de eliminar el registro Numero "+id+" ?")) {
-      this.contacto.baja(id).subscribe(datos => {
+      this.agenda.baja(id).subscribe(datos => {
         console.log(datos)
-        alert("Contacto eliminado ")
+        alert("agenda eliminado ")
         this.myform.reset()
         this.recuperarTodos()
       });
@@ -73,9 +73,9 @@ export class Formulario1Component implements OnInit {
       IdCliente:value.IdCliente,
       FechaHora:value.FechaHora
     }
-    this.contacto.modificacion(this.nuevocon,this.id_editar).subscribe(datos => {
+    this.agenda.modificacion(this.nuevocon,this.id_editar).subscribe(datos => {
       console.log(datos)
-      alert("Contacto editado ")
+      alert("agenda editado ")
       this.myform.reset()
       this.recuperarTodos()
     });    

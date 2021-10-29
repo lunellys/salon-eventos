@@ -15,12 +15,12 @@ import { CateringComponent } from './paginas/catering/catering.component';
 import { EquipoComponent } from './paginas/equipo/equipo.component';
 import { CardsComponent } from './componentes/cards/cards.component';
 import { Formulario1Component } from './formulario/formulario1/formulario1.component';
-import { Formulario2Component } from './formulario/formulario2/formulario2.component';
+
 
 import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormularioclienteComponent } from './formulario/formulariocliente/formulariocliente.component';
-import { FormularioagendaComponent } from './formulario/formularioagenda/formularioagenda.component';
+
 import { FormulariosalonesComponent } from './formulario/formulariosalones/formulariosalones.component';
 import { FormulariosalonesPrestadosComponent } from './formulario/formulariosalones-prestados/formulariosalones-prestados.component';
 
@@ -39,9 +39,9 @@ import { FormulariosalonesPrestadosComponent } from './formulario/formulariosalo
     EquipoComponent,
     CardsComponent,
     Formulario1Component,
-    Formulario2Component,
+    
     FormularioclienteComponent,
-    FormularioagendaComponent,
+    
     FormulariosalonesComponent,
     FormulariosalonesPrestadosComponent
   ],

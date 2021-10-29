@@ -17,8 +17,8 @@ export class ClienteService {
   }
 
   //insertar
-  alta(contacto:any):Observable<any> {
-    return this.http.post(`${this.url}add_cliente`, contacto);    
+  alta(cliente:any):Observable<any> {
+    return this.http.post(`${this.url}add_cliente`, cliente);    
   }
  
   //eliminar
@@ -27,7 +27,7 @@ export class ClienteService {
   }
 
    //editar
-  modificacion(contacto:any, id:number) {
-    return this.http.put(`${this.url}/update_cliente/`+id, contacto);    
+  modificacion(cliente:any, id:number) {
+    return this.http.put(`${this.url}/update_cliente/`+id, cliente);    
   } 
 }

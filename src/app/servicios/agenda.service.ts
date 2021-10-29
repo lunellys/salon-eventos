@@ -17,8 +17,8 @@ export class AgendaService {
   }
 
   //insertar
-  alta(contacto:any):Observable<any> {
-    return this.http.post(`${this.url}add_agenda`, contacto);    
+  alta(agenda:any):Observable<any> {
+    return this.http.post(`${this.url}add_agenda`, agenda);    
   }
  
   //eliminar
@@ -27,8 +27,8 @@ export class AgendaService {
   }
 
    //editar
-  modificacion(contacto:any, id:number) {
-    return this.http.put(`${this.url}/update_agenda/`+id, contacto);    
+  modificacion(agenda:any, id:number) {
+    return this.http.put(`${this.url}/update_agenda/`+id, agenda);    
   } 
 
 }
