@@ -13,16 +13,16 @@ export class FormulariosalonesComponent implements OnInit {
   id_editar:number=0;
   constructor(private _builder:FormBuilder,private salones: SalonesService) { 
     this.myform=this._builder.group({
-      tamano: ['', [Validators.required, Validators.maxLength(50)]]  ,
-      tipo_Salon: ['', [Validators.required]]  ,
-      precio: ['', [Validators.required, Validators.maxLength(100)]] 
+      Nom_Salon: ['', [Validators.required, Validators.maxLength(50)]]  ,
+      Tam_Salon: ['', [Validators.required]]  ,
+      Equ_Salin: ['', [Validators.required, Validators.maxLength(100)]] 
     })
   }
   lista_salones: any;
   nuevocon={
-    tamano:null,
-    tipo_Salon:null,
-    precio:null
+    Nom_Salon:null,
+    Tam_Salon:null,
+    Equ_Salin:null
   }
  
   ////// cuando carga el componente se activa ngonInit y llama el metodo  recuperartodos
@@ -39,9 +39,9 @@ export class FormulariosalonesComponent implements OnInit {
   // que tiene la ruta de agregar  alta=add_contact
   alta(value:any) {
     this.nuevocon={
-      tamano:value.tamano,
-      tipo_Salon:value.tipo_Salon,
-      precio:value.precio
+      Nom_Salon:value.Nom_Salon,
+      Tam_Salon:value.Tam_Salon,
+      Equ_Salin:value.Equ_Salin
     }
     this.salones.alta(this.nuevocon).subscribe(datos => {
       console.log(datos)
@@ -69,9 +69,9 @@ export class FormulariosalonesComponent implements OnInit {
   // llama el metodo baja del servicio  modificacion=update/<id>
   modificacion(value:any) {
     this.nuevocon={
-      tamano:value.tamano,
-      tipo_Salon:value.tipo_Salon,
-      precio:value.precio
+      Nom_Salon:value.Nom_Salon,
+      Tam_Salon:value.Tam_Salon,
+      Equ_Salin:value.Equ_Salin
     }
     this.salones.modificacion(this.nuevocon,this.id_editar).subscribe(datos => {
       console.log(datos)
@@ -83,11 +83,11 @@ export class FormulariosalonesComponent implements OnInit {
   
   //este metodo carga los datos de la fila al formulario
   seleccionar(con_edi:any) {
-   this.id_editar=con_edi['IdSalones'];
+   this.id_editar=con_edi['Id_Salon'];
    this.myform.setValue({
-    tamano:con_edi['tamano'],
-    tipo_Salon:con_edi['tipo_Salon'],
-    precio:con_edi['precio']
+    Nom_Salon:con_edi['Nom_Salon'],
+    Tam_Salon:con_edi['Tam_Salon'],
+    Equ_Salin:con_edi['Equ_Salin']
   })
   }
 

@@ -13,16 +13,21 @@ export class FormularioclienteComponent implements OnInit {
   id_editar:number=0;
   constructor(private _builder:FormBuilder,private cliente: ClienteService) { 
     this.myform=this._builder.group({
-      nombres: ['', [Validators.required, Validators.maxLength(50)]]  ,
-      apellidos: ['', [Validators.required]]  ,
-      identificacion: ['', [Validators.required, Validators.maxLength(100)]] 
+      Ident_Cliente: ['', [Validators.required, Validators.maxLength(50)]]  ,
+      Nom_cliente: ['', [Validators.required]]  ,
+      Apel_Cliente: ['', [Validators.required, Validators.maxLength(100)]] ,
+      Edad_Cliente: ['', [Validators.required]]  ,
+      Afiliado: ['', [Validators.required, Validators.maxLength(100)]] 
+
     })
   }
   lista_clientes: any;
   nuevocon={
-    nombres:null,
-    apellidos:null,
-    identificacion:null
+    Ident_Cliente:null,
+    Nom_cliente:null,
+    Apel_Cliente:null,
+    Edad_Cliente:null,
+    Afiliado:null
   }
  
   ////// cuando carga el componente se activa ngonInit y llama el metodo  recuperartodos
@@ -39,9 +44,11 @@ export class FormularioclienteComponent implements OnInit {
   // que tiene la ruta de agregar  alta=add_contact
   alta(value:any) {
     this.nuevocon={
-      nombres:value.nombres,
-      apellidos:value.apellidos,
-      identificacion:value.identificacion
+      Ident_Cliente:value.Ident_Cliente,
+      Nom_cliente:value.Nom_cliente,
+      Apel_Cliente:value.Apel_Cliente,
+      Edad_Cliente:value.Edad_Cliente,
+      Afiliado:value.Afiliado
     }
     this.cliente.alta(this.nuevocon).subscribe(datos => {
       console.log(datos)
@@ -69,9 +76,11 @@ export class FormularioclienteComponent implements OnInit {
   // llama el metodo baja del servicio  modificacion=update/<id>
   modificacion(value:any) {
     this.nuevocon={
-      nombres:value.nombres,
-      apellidos:value.apellidos,
-      identificacion:value.identificacion
+      Ident_Cliente:value.Ident_Cliente,
+      Nom_cliente:value.Nom_cliente,
+      Apel_Cliente:value.Apel_Cliente,
+      Edad_Cliente:value.Edad_Cliente,
+      Afiliado:value.Afiliado
     }
     this.cliente.modificacion(this.nuevocon,this.id_editar).subscribe(datos => {
       console.log(datos)
@@ -83,11 +92,13 @@ export class FormularioclienteComponent implements OnInit {
   
   //este metodo carga los datos de la fila al formulario
   seleccionar(con_edi:any) {
-   this.id_editar=con_edi['IdCliente'];
+   this.id_editar=con_edi['Id_Cliente'];
    this.myform.setValue({
-    nombres:con_edi['nombres'],
-    apellidos:con_edi['apellidos'],
-    identificacion:con_edi['identificacion']
+    Ident_Cliente:con_edi['Ident_Cliente'],
+    Nom_cliente:con_edi['Nom_cliente'],
+    Apel_Cliente:con_edi['Apel_Cliente'],
+    Edad_Cliente:con_edi['Edad_Cliente'],
+    Afiliado:con_edi['Afiliado']
   })
   }
 

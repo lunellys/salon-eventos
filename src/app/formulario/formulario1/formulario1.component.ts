@@ -13,16 +13,20 @@ export class Formulario1Component implements OnInit {
   id_editar:number=0;
   constructor(private _builder:FormBuilder,private agenda: AgendaService) { 
     this.myform=this._builder.group({
-      IdSalones_p: ['', [Validators.required, Validators.maxLength(50)]]  ,
-      IdCliente: ['', [Validators.required]]  ,
-      FechaHora: ['', [Validators.required, Validators.maxLength(100)]] 
+      Id_Cliente: ['', [Validators.required, Validators.maxLength(50)]]  ,
+      Id_Salon: ['', [Validators.required]]  ,
+      Fecha: ['', [Validators.required, Validators.maxLength(100)]],
+      Valor_Alq: ['', [Validators.required, Validators.maxLength(100)]] ,
+      Met_Pago: ['', [Validators.required, Validators.maxLength(100)]] 
     })
   }
   lista_agendas: any;
   nuevocon={
-    IdSalones_p:null,
-    IdCliente:null,
-    FechaHora:null
+    Id_Cliente:null,
+    Id_Salon:null,
+    Fecha:null,
+    Valor_Alq:null,
+    Met_Pago:null
   }
  
   ////// cuando carga el componente se activa ngonInit y llama el metodo  recuperartodos
@@ -39,9 +43,11 @@ export class Formulario1Component implements OnInit {
   // que tiene la ruta de agregar  alta=add_contact
   alta(value:any) {
     this.nuevocon={
-      IdSalones_p:value.IdSalones_p,
-      IdCliente:value.IdCliente,
-      FechaHora:value.FechaHora
+      Id_Cliente:value.Id_Cliente,
+      Id_Salon:value.Id_Salon,
+      Fecha:value.Fecha,
+      Valor_Alq:value.Valor_Alq,
+      Met_Pago:value.Met_Pago
     }
     this.agenda.alta(this.nuevocon).subscribe(datos => {
       console.log(datos)
@@ -69,9 +75,11 @@ export class Formulario1Component implements OnInit {
   // llama el metodo baja del servicio  modificacion=update/<id>
   modificacion(value:any) {
     this.nuevocon={
-      IdSalones_p:value.IdSalones_p,
-      IdCliente:value.IdCliente,
-      FechaHora:value.FechaHora
+      Id_Cliente:value.Id_Cliente,
+      Id_Salon:value.Id_Salon,
+      Fecha:value.Fecha,
+      Valor_Alq:value.Valor_Alq,
+      Met_Pago:value.Met_Pago
     }
     this.agenda.modificacion(this.nuevocon,this.id_editar).subscribe(datos => {
       console.log(datos)
@@ -83,11 +91,13 @@ export class Formulario1Component implements OnInit {
   
   //este metodo carga los datos de la fila al formulario
   seleccionar(con_edi:any) {
-   this.id_editar=con_edi['IdAgenda'];
+   this.id_editar=con_edi['Id_Alquiler'];
    this.myform.setValue({
-    IdSalones_p:con_edi['IdSalones_p'],
-    IdCliente:con_edi['IdCliente'],
-    FechaHora:con_edi['FechaHora']
+    Id_Cliente:con_edi['Id_Cliente'],
+    Id_Salon:con_edi['Id_Salon'],
+    Fecha:con_edi['Fecha'],
+    Valor_Alq:con_edi['Valor_Alq'],
+    Met_Pago:con_edi['Met_Pago']
   })
   }
 

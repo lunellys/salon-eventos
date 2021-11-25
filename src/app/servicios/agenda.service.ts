@@ -13,22 +13,22 @@ export class AgendaService {
 
   //obtener todos
   recuperarTodos() {
-    return this.http.get(`${this.url}getAll_agenda`);
+    return this.http.get(`${this.url}getAll`);
   }
 
   //insertar
   alta(agenda:any):Observable<any> {
-    return this.http.post(`${this.url}add_agenda`, agenda);    
+    return this.http.post(`${this.url}add_alquiler`, agenda);    
   }
  
   //eliminar
   baja(codigo:number) {
-    return this.http.delete(`${this.url}delete_agenda/${codigo}`);
+    return this.http.delete(`${this.url}delete_alquiler/${codigo}`);
   }
 
    //editar
   modificacion(agenda:any, id:number) {
-    return this.http.put(`${this.url}/update_agenda/`+id, agenda);    
+    return this.http.put(`${this.url}/update_alquiler/`+id, agenda);    
   } 
 
 }

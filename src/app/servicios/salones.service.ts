@@ -13,22 +13,22 @@ export class SalonesService {
 
   //obtener todos
   recuperarTodos() {
-    return this.http.get(`${this.url}getAll_salones`);
+    return this.http.get(`${this.url}getAll_salon_evento`);
   }
 
   //insertar
   alta(salones:any):Observable<any> {
-    return this.http.post(`${this.url}add_salones`, salones);    
+    return this.http.post(`${this.url}add_salon_evento`, salones);    
   }
  
   //eliminar
   baja(codigo:number) {
-    return this.http.delete(`${this.url}delete_salones/${codigo}`);
+    return this.http.delete(`${this.url}delete_salon_evento/${codigo}`);
   }
 
    //editar
   modificacion(salones:any, id:number) {
-    return this.http.put(`${this.url}/update_salones/`+id, salones);    
+    return this.http.put(`${this.url}/update_salon_evento/`+id, salones);    
   } 
 
 }

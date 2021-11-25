@@ -1,17 +1,17 @@
 <div class="container">
-    <h1>Administración de contactos</h1>
+    <h1>Administración de los Salones</h1>
     <!-- Creacion de la grilla -->
     <div class="row">
       <div class="col-lg-6">
         <form [formGroup]="myform">  <!-- el formulario se llama myform-->
           <p>
-            <label>Tamaño</label><input type="text" class="form-control" formControlName="tamano" />
+            <label>Nombre Salon</label><input type="text" class="form-control" formControlName="Nom_Salon" />
           </p>
           <p>
-            <label>Tipo de Salon</label><input type="text" class="form-control" formControlName="tipo_Salon" />
+            <label>Tamaño del Salon</label><input type="text" class="form-control" formControlName="Tam_Salon" />
           </p>
           <p>
-            <label>Valor</label><input type="number" class="form-control" formControlName="precio" />
+            <label>Equipo Salon</label><input type="text" class="form-control" formControlName="Equ_Salin" />
           </p>
           <p><button (click)="alta(myform.value)" class="btn btn-primary mx-1">Agregar</button>
              <button (click)="modificacion(myform.value)" class="btn btn-danger">Modificar</button>
@@ -21,26 +21,26 @@
   
       <div class="col-lg-6">
          <!-- puede colocar una imagen -->
-         <!--<img src="https://thumbs.dreamstime.com/b/se%C3%B1ora-bermeja-del-negocio-en-fondo-verde-secretaria-de-la-mujer-vector-f-95886009.jpg" alt="" width="60%" height="100%">-->
+         <img src="assets/chica.png" alt="" width="60%" height="100%">
   
       </div>
     </div>
     <table class="table table-striped table-bordered">
       <tr>
         <th>Id</th>
-        <th>Nombre</th>
-        <th>Telefono</th>
-        <th>Correo</th>
+        <th>Nombre Salon</th>
+        <th>Tamaño del Salon</th>
+        <th>Equipo Salon</th>
         <th class="text-center" colspan="2">Opciones</th>
       </tr>
        <!-- *ngfor permite recorrer el resultado de buscar todos los registros y mostralo en la tabla html -->
       <tr *ngFor="let con of lista_salones" >
-        <td>{{con.IdSalones}}</td>
-        <td>{{con.tamano}}</td>
-        <td>{{con.tipo_Salon}}</td>
-        <td>{{con.precio}}</td>
+        <td>{{con.Id_Salon}}</td>
+        <td>{{con.Nom_Salon}}</td>
+        <td>{{con.Tam_Salon}}</td>
+        <td>{{con.Equ_Salin}}</td>
         <td><button class="btn btn-outline-secondary" (click)="seleccionar(con)">Seleccionar</button></td>
-        <td><button class="btn btn-outline-danger" (click)="baja(con.IdSalones)">Borrar?</button></td>
+        <td><button class="btn btn-outline-danger" (click)="baja(con.Id_Salon)">Borrar?</button></td>
       </tr>
     </table>
    </div>

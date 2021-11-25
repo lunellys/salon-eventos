@@ -13,21 +13,21 @@ export class ClienteService {
 
   //obtener todos
   recuperarTodos() {
-    return this.http.get(`${this.url}getAll_cliente`);
+    return this.http.get(`${this.url}getAll_clientes`);
   }
 
   //insertar
   alta(cliente:any):Observable<any> {
-    return this.http.post(`${this.url}add_cliente`, cliente);    
+    return this.http.post(`${this.url}add_clientes`, cliente);    
   }
  
   //eliminar
   baja(codigo:number) {
-    return this.http.delete(`${this.url}delete_cliente/${codigo}`);
+    return this.http.delete(`${this.url}delete_clientes/${codigo}`);
   }
 
    //editar
   modificacion(cliente:any, id:number) {
-    return this.http.put(`${this.url}/update_cliente/`+id, cliente);    
+    return this.http.put(`${this.url}/update_clientes/`+id, cliente);    
   } 
 }
